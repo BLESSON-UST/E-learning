@@ -2,6 +2,7 @@ package com.ust.user.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,6 +86,11 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
 		return response;
+	}
+
+	@GetMapping("/usr")
+	public List<User> getallusr() {
+		return userService.getallusr();
 	}
 
 	@GetMapping("/user/details/{username}")

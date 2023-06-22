@@ -46,11 +46,10 @@ public class AuthFilter extends GenericFilterBean {
 
 	private String getSigningKey(HttpServletRequest request) {
 		// Retrieve the signing key based on the user type (you can modify this logic as per your requirements)
-		String userType = request.getHeader("typ");
-		if (userType != null && userType.equals("admin")) {
+		String username = request.getHeader("username");
+
+		if (username != null && username.equals("admin")) {
 			return "adminsecretkey"; // You can modify the key for the admin here
-		} else if (userType != null && userType.equals("kitchen staff")) {
-			return "kitchenstaffsecretkey"; // You can modify the key for the kitchen staff here
 		} else {
 			return "usersecretkey"; // Default key for other types
 		}

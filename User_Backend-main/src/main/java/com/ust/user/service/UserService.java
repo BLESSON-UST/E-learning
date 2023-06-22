@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.ust.user.entity.User;
 import com.ust.user.repository.UserRepository;
 
+import java.util.List;
+
 @Service
 public class UserService {
 	
@@ -23,5 +25,9 @@ public class UserService {
 	public User getUserByUsername(String username)  {
 		
 		return repository.findByUsername(username);
+	}
+
+	public List<User> getallusr() {
+		return repository.findAll();
 	}
 }
